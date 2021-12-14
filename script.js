@@ -1,109 +1,95 @@
 
-function buildQuiz() {
-    
-	const output = [];
+const output = [];
+const answers = [];
 
-    
-    myQuestions.forEach(
-      (currentQuestion, questionNumber) => {
+const answerContainers = quizContainer.querySelectorAll('.answers');
+let numCorrect = 0;
 
-        
-        const answers = [];
-
-        
-        for(letter in currentQuestion.answers){
-
-          
-          answers.push(
-            `<label>
-              <input type="radio" name="question${questionNumber}" value="${letter}">
-              ${letter} :
-              ${currentQuestion.answers[letter]}
-            </label>`
-          );
-        }
-
-        
-        output.push(
-          `<div class="question"> ${currentQuestion.question} </div>
-          <div class="answers"> ${answers.join('')} </div>`
-        );
-      }
-    );
-
-    
-    quizContainer.innerHTML = output.join('');
-} 
-
-function showResults() {
-
-    
-    const answerContainers = quizContainer.querySelectorAll('.answers');
-
-    
-    let numCorrect = 0;
-
-    
-    myQuestions.forEach( (currentQuestion, questionNumber) => {
-
-      
-      const answerContainer = answerContainers[questionNumber];
-      const selector = `input[name=question${questionNumber}]:checked`;
-      const userAnswer = (answerContainer.querySelector(selector) || {}).value;
-
-      
-      if(userAnswer === currentQuestion.correctAnswer){
-        
-        numCorrect++;
-
-        
-        answerContainers[questionNumber].style.color = 'lightgreen';
-      }
-      
-      else{
-        
-        answerContainers[questionNumber].style.color = 'red';
-      }
-    });
-
-    
-    resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
-}
+const answerContainer = answerContainers[questionNumber];
+const selector = `input[name=question${questionNumber}]:checked`;
+const userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
 const quizContainer = document.getElementById('quiz');
 const resultsContainer = document.getElementById('results');
 const submitButton = document.getElementById('submit');
 const myQuestions = [
-  {
-    question: "Who directed the movie Jaws?",
-    answers: {
-      a: "Spielberg",
-      b: "Cameron",
-      c: "Mann",
-      d: "Copola"
-    },
-    correctAnswer: "a"
+
+
+
+function buildQuiz() {
+  myQuestions.forEach((currentQuestion, questionNumber) => { 
+    for(letter in currentQuestion.answers){
+      answers.push(
+        `<label>
+          <input type="radio" name="question${questionNumber}" value="${letter}">
+          ${letter} :
+          ${currentQuestion.answers[letter]}
+        </label>`
+      );
+    }
+
+        
+      output.push(
+        `<div class="question"> ${currentQuestion.question} </div>
+        <div class="answers"> ${answers.join('')} </div>`
+      );
+    }
+  );
+
+    
+  quizContainer.innerHTML = output.join('');
+} 
+
+function showResults() {
+
+  myQuestions.forEach( (currentQuestion, questionNumber) => {
+    if(userAnswer === currentQuestion.correctAnswer){
+       
+        numCorrect++;
+        answerContainers[questionNumber].style.color = 'lightgreen';
+    }
+      
+    else{
+        
+      answerContainers[questionNumber].style.color = 'red';
+    }
+  });
+
+    
+  resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+}
+
+
+{
+  question: "Who directed the movie Jaws?",
+  answers: {
+    a: "Spielberg",
+    b: "Cameron",
+    c: "Mann",
+    d: "Copola"
   },
-  {
-    question: "How many Harry Potter movies are there?",
-    answers: {
-      a: "5",
-      b: "7",
-      c: "8",
-      d: "6"
-    },
-    correctAnswer: "c"
+  correctAnswer: "a"
+},
+{
+  question: "How many Harry Potter movies are there?",
+  answers: {
+    a: "5",
+    b: "7",
+    c: "8",
+    d: "6"
   },
-  { 
-    question: "What is the highest grossing R rated movie of all time?",
-    answers: {
-      a: "Joker",
-      b: "Jaws",
-      c: "Hangover",
-      d: "Hangover 2"
-    },
-    correctAnswer: "a"
-  }
+  correctAnswer: "c"
+},
+{ 
+  question: "What is the highest grossing R rated movie of all time?",
+  answers: {
+    a: "Joker",
+    b: "Jaws",
+    c: "Hangover",
+    d: "Hangover 2"
+  },
+  correctAnswer: "a"
+}
 ]; 
 
   
