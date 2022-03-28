@@ -1,0 +1,39 @@
+
+
+h1 {
+	font-size: 60px;
+	font-family:  arial;
+	color: black;
+	
+
+}
+
+.question {
+	font-size:  20px;
+	font-weight: 600;
+	color: black;
+	
+}
+
+.answers {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	color: white;
+	
+}
+
+#submit {
+	font-size: 25px;
+	border-radius: 3px;
+	color: black;
+	
+}
+
+.results {
+	
+}
+
+body {
+	padding: 0 0 0 30%;
+	background-image:  url(https://www.nhm.ac.uk/content/dam/nhmwww/discover/shark-eggs/whale-shark-v2-full-width.jpg);
+}

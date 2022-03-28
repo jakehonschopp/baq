@@ -11,22 +11,123 @@ const myQuestions = [
     {
       question: "Who directed the movie Jaws?",
       answers: {
-        a: "Spielberg",
-        b: "Cameron",
-        c: "Mann",
-        d: "Copola"
+        a: "Steven Spielberg",
+        b: "James Cameron",
+        c: "Michael Mann",
+        d: "Francis Ford Copola"
       },
       correctAnswer: "a"
     },
     {
-      question: "How many Harry Potter movies are there?",
+      question: "Do sharks have bones?",
       answers: {
-        a: "5",
-        b: "7",
-        c: "8",
-        d: "6"
+        a: "Yes",
+        b: "Of course, are you dumb?",
+        c: "Tons of the stuff",
+        d: "No"
+      },
+      correctAnswer: "d"
+    },
+    {
+      question: "What is the world's biggest shark?",
+      answers: {
+        a: "Lemon",
+        b: "Great White",
+        c: "Tiger",
+        d: "Whale"
+      },
+      correctAnswer: "d"
+    },
+    {
+      question: "Which is the best hockey team?",
+      answers: {
+        a: "Cincinnati Cyclones",
+        b: "Chicago Blackhawks",
+        c: "Pittsburgh Penguins",
+        d: "San Jose Sharks"
+      },
+      correctAnswer: "d"
+    },
+    {
+      question: "What is 'The Physical Impossibility of Death in the Mind of Someone Living'?",
+      answers: {
+        a: "A pretentious name for a piece of art",
+        b: "An inspiring work of genius",
+        c: "don't pick this answer",
+        d: "the answer is a"
+      },
+      correctAnswer: "a"
+    },
+    {
+      question: "To date, which is the most sold item on the hit show Shark Tank?",
+      answers: {
+        a: "Bombas socks (and t-shirts)",
+        b: "Squatty Potty",
+        c: "Ring Doorbell technology",
+        d: "Kodiak Kakes"
+      },
+      correctAnswer: "a"
+    },
+    {
+      question: "Have I, the maker of this quiz, ever eaten shark?",
+      answers: {
+        a: "Yes, I am a cultured individual and have visited Iceland. It was disgusting.",
+        b: "Absolutely not",
+        c: "I would never",
+        d: "I never leave the house"
+      },
+      correctAnswer: "a"
+    },
+
+    {
+      question: "Which animal has virtually a 360 degree field of vision?",
+      answers: {
+        a: "Puma",
+        b: "Peacock",
+        c: "Jayhawk",
+        d: "Hammerhead shark"
+      },
+      correctAnswer: "d"
+    },
+    {
+      question: "Which of these was Taylor Lautner's first ever role?",
+      answers: {
+        a: "Twilight",
+        b: "Disney's HOLES",
+        c: "The Adventures of Sharkboy and Lava Girl (3D)",
+        d: "Grown Ups 2"
       },
       correctAnswer: "c"
+    },
+    {
+      question: "Which is the first DreamWorks Animation film that features no humans?",
+      answers: {
+        a: "Shark Tale",
+        b: "My Shark and Me",
+        c: "Shrek",
+        d: "Jaws III"
+      },
+      correctAnswer: "a"
+    },
+    {
+      question: "How much money did THE MEG cinematic film make?",
+      answers: {
+        a: "No money, this film isn't real.",
+        b: "$530 million",
+        c: "$100 million",
+        d: "$16"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "Could my dog Olive beat up a shark?",
+      answers: {
+        a: "Of course, she's huge",
+        b: "Absolutely",
+        c: "Have you seen a shark?",
+        d: "She is terrified of water"
+      },
+      correctAnswer: "d"
     },
     {
       question: "What is the highest grossing R rated movie of all time?",
@@ -84,14 +185,14 @@ function showResults() {
 
     if(userAnswer === currentQuestion.correctAnswer){
       numCorrect++;
-      answerContainers[questionNumber].style.color = 'lightgreen';
+      answerContainers[questionNumber].style.color = 'darkgreen';
     }
 
     else{
       answerContainers[questionNumber].style.color = 'red';
     }
   });
-  resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+  resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}.Thank you for taking the shark quiz :) Fun fact: Sharks have been around for over 400 million years, even longer than dinosaurs.`;
 }; 
 
 // function to build the quiz and event listener to show the results upon hitting the submit button
